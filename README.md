@@ -28,7 +28,7 @@ Simple system to map the orders from the stores to the motorcycle couriers
     python app.py
     ```
 
-  - To displey the information from a specific motoboy:
+  - To display the information from a specific motoboy:
 
     ```
     python app.py --motoboy <id_motoboy>
