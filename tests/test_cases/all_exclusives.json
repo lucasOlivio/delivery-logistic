@@ -1,0 +1,97 @@
+{
+    "motoboys": {
+        "1": {
+            "cost": 2,
+            "exclusive": "1",
+            "profits": {}
+        },
+        "2": {
+            "cost": 2,
+            "exclusive": "3",
+            "profits": {}
+        },
+        "3": {
+            "cost": 2,
+            "exclusive": "2",
+            "profits": {}
+        },
+        "4": {
+            "cost": 2,
+            "exclusive": "1",
+            "profits": {}
+        },
+        "5": {
+            "cost": 3,
+            "exclusive": "2",
+            "profits": {}
+        }
+    },
+    "shops": {
+        "1": {
+            "orders": [50, 50, 50],
+            "fee": 0.05
+        },
+        "2": {
+            "orders": [50, 50, 50, 50],
+            "fee": 0.05
+        },
+        "3": {
+            "orders": [50, 50, 100],
+            "fee": 0.15
+        }
+    },
+    "shops_priorities": {
+        "1": {
+            "orders": [50, 50, 50],
+            "fee": 0.05,
+            "priority": ["1", "4"]
+        },
+        "2": {
+            "orders": [50, 50, 50, 50],
+            "fee": 0.05,
+            "priority": ["3", "5"]
+        },
+        "3": {
+            "orders": [50, 50, 100],
+            "fee": 0.15,
+            "priority": ["2"]
+        }
+    },
+    "motoboys_profits": {
+        "1": {
+            "cost": 2,
+            "exclusive": "1",
+            "profits": {
+                "1": [4.5, 4.5]
+            }
+        },
+        "2": {
+            "cost": 2,
+            "exclusive": "3",
+            "profits": {
+                "3": [9.5, 9.5, 17.0]
+            }
+        },
+        "3": {
+            "cost": 2,
+            "exclusive": "2",
+            "profits": {
+                "2": [4.5, 4.5]
+            }
+        },
+        "4": {
+            "cost": 2,
+            "exclusive": "1",
+            "profits": {
+                "1": [4.5]
+            }
+        },
+        "5": {
+            "cost": 3,
+            "exclusive": "2",
+            "profits": {
+                "2": [5.5, 5.5]
+            }
+        }
+    }
+}
