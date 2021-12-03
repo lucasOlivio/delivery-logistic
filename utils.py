@@ -11,13 +11,17 @@ class ListIterator:
     ls: list
         The list to iterate over
     """
+
     def __init__(self, ls):
         self.ls = ls
         self.idx = 0
+
     def __iter__(self):
         return self
+
     def rewind(self):
         self.idx = 0
+
     def __next__(self):
         try:
             return self.ls[self.idx]
@@ -26,17 +30,18 @@ class ListIterator:
         finally:
             self.idx += 1
 
+
 def filter_exclusives(motoboys: dict, shops: dict) -> list:
     """
     Filters the exclusive motoboys each to a shop and returns the non exclusive motoboys
-    
+
     Parameters
     ----
     motoboys : dict
         Motoboys data structure
     shops : str
         Shops data structure
-    
+
     Returns
     ----
     list
@@ -44,17 +49,22 @@ def filter_exclusives(motoboys: dict, shops: dict) -> list:
     """
     non_priority = []
     for motoboy in motoboys:
-        # If the motoboy is exclusive add it to the shop 
+        # If the motoboy is exclusive add it to the shop
         # else add it to the non priority list
         if "exclusive" in motoboys[motoboy]:
             if motoboys[motoboy]["exclusive"] in shops:
                 try:
-                    shops[motoboys[motoboy]["exclusive"]]["priority"].append(motoboy)
+                    shops[motoboys[motoboy]["exclusive"]]["priority"].append(
+                        motoboy
+                    )
                 except KeyError:
-                    shops[motoboys[motoboy]["exclusive"]]["priority"] = [motoboy]
+                    shops[motoboys[motoboy]["exclusive"]]["priority"] = [
+                        motoboy
+                    ]
         else:
             non_priority.append(motoboy)
     return non_priority
+
 
 def set_profits(motoboys: dict, shops: dict, non_priority: list) -> None:
     """
@@ -87,7 +97,7 @@ def set_profits(motoboys: dict, shops: dict, non_priority: list) -> None:
             try:
                 motoboy = next(current_motoboys)
             except StopIteration:
-                # If there are no more motoboys in the iterator 
+                # If there are no more motoboys in the iterator
                 # switch to the other list and reset the iterator
                 temp_iter = current_motoboys
                 current_motoboys = next_motoboys
@@ -100,6 +110,7 @@ def set_profits(motoboys: dict, shops: dict, non_priority: list) -> None:
                 motoboys[motoboy]["profits"][shop].append(profit)
             except KeyError:
                 motoboys[motoboy]["profits"][shop] = [profit]
+
 
 def info_motoboy(id_motoboy: str, motoboy: dict) -> None:
     """
@@ -118,8 +129,8 @@ def info_motoboy(id_motoboy: str, motoboy: dict) -> None:
     # Print the profits and orders for each shop
     # and calculate the total profit and orders
     for shop in motoboy["profits"]:
-        profit = sum(motoboy['profits'][shop])
-        orders = len(motoboy['profits'][shop])
+        profit = sum(motoboy["profits"][shop])
+        orders = len(motoboy["profits"][shop])
         total_profit += profit
         total_orders += orders
         print(f"SHOP {shop}:")
@@ -129,6 +140,7 @@ def info_motoboy(id_motoboy: str, motoboy: dict) -> None:
     print(f"Total order(s): {total_orders}")
     print(f"\n{'-' * 28}\n")
 
+
 def read_json(file_name: str) -> dict:
     """
     Reads the json file and returns the data structure
@@ -137,7 +149,7 @@ def read_json(file_name: str) -> dict:
     ----
     file_name : str
         File name to be read
-    
+
     Returns
     ----
     dict

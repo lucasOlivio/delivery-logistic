@@ -6,7 +6,9 @@ def main():
     # Parsing arguments
     parser = argparse.ArgumentParser()
     parser.add_argument(
-        "--motoboy", help="Display information about a single motoboy", type=str
+        "--motoboy",
+        help="Display information about a single motoboy",
+        type=str,
     )
     args = parser.parse_args()
     motoboy = getattr(args, "motoboy", None)
@@ -30,6 +32,7 @@ def main():
     else:
         for id_motoboy, motoboy in motoboys.items():
             info_motoboy(id_motoboy, motoboy)
+
 
 if __name__ == "__main__":
     main()
